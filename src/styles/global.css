@@ -68,11 +68,13 @@ html {
   scroll-behavior: smooth;
   font-family: var(--font-geist);
   background: var(--brand-dark);
+
 }
 
 body {
   overscroll-behavior-y: none;
   background: var(--brand-dark);
+
 }
 
 h1, h2, h3, h4, h5, h6 {
