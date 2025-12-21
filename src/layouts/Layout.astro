@@ -9,11 +9,21 @@ import "../styles/global.css";
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="robots" content="noindex,nofollow">
+		<meta name="theme-color" content="#070707">
+	  <link rel="preload" href="../assets/fonts/SpaceGrotesk-600.woff2" as="font" type="font/woff2" crossorigin>
+		<link rel="preload" as="image" href="../../public/profile-pic.webp" type="image/webp" fetchpriority="high">
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Fernando Guerrero</title>
 	</head>
-	<body>
+	<body class="bg-brand-dark">
 		<slot />
 	</body>
 </html>
+
+
+<style>
+	html, body {
+		background-color: #070707;
+	}
+</style>
