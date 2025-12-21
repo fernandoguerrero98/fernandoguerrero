@@ -1,5 +1,5 @@
 @import "tailwindcss";
-
+@plugin "@iconify/tailwind4";
 
 
 /* Fuentes */
@@ -35,16 +35,16 @@
 @theme {
   
   /* colores */
-  --color-brand-dark: #000000;
-  --color-brand-light: #ffffff;
-  --color-brand-accent: #00FFFF;
+  --color-brand-dark: #070707;
+  --color-brand-white: #FAFAFA;
+  --color-brand-accent: #fb2c36;
 
   /* tamaños de fuente */
-  --text-h1: 4rem;
-  --text-h2: 3rem;
-  --text-h3: 1.75rem;
-  --text-h4: 1.25rem;
-  --text-base: 1.125rem;
+  --text-h1: 2rem;
+  --text-h2: 1.5rem;
+  --text-h3: 1.25rem;
+  --text-h4: 1.125rem;
+  --text-base: 1rem;
   --text-sm: 0.85rem;
 
   /* pesos de fuente */
