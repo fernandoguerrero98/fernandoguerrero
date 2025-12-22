@@ -1,5 +1,14 @@
 ---
 import "../styles/global.css";
+
+const {
+  title = "Fernando Guerrero",
+  description,
+	canonical,
+  robots = "index,follow",
+  preloads = [],
+	og = {},
+} = Astro.props;
 ---
 
 
@@ -8,22 +17,52 @@ import "../styles/global.css";
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<meta name="robots" content="noindex,nofollow">
-		<meta name="theme-color" content="#070707">
-	  <link rel="preload" href="../assets/fonts/SpaceGrotesk-600.woff2" as="font" type="font/woff2" crossorigin>
-		<link rel="preload" as="image" href="../../public/profile-pic.webp" type="image/webp" fetchpriority="high">
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Fernando Guerrero</title>
+		<meta name="theme-color" content="#070707" />
+		<meta name="color-scheme" content="dark" />
+
+
+		<!-- Mappear e insertar preloaders dependiendo de la página (si hay, si no []) -->
+		{
+			preloads.map((preload) => (
+				<link
+					rel="preload"
+					href={preload.href}
+					as={preload.as}
+					type={preload.type}
+					crossorigin={preload.crossorigin}
+					fetchpriority={preload.fetchpriority}
+				/>
+			))
+		}
+
+
+		<!-- { SEO básico } -->
+		<meta name="robots" content={robots} />
+		<title>{title}</title>
+		{ description && <meta name="description" content={description} /> }
+		{ canonical && <link rel="canonical" href={canonical} /> }
+		
+
+		<!-- { Open Graph } -->
+		<meta property="og:site_name" content="fernandoguerrero.dev" />
+		<meta property="og:locale" content="es_ES" />
+		{ og.title && <meta property="og:title" content={og.title} /> }
+    { og.description && <meta property="og:description" content={og.description} /> }
+    { og.type && <meta property="og:type" content={og.type} /> }
+    { og.image && <meta property="og:image" content={og.image} /> }
+    { og.url && <meta property="og:url" content={og.url} /> }
+
+		<!-- { Twitter Cards } -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={og.title ?? title} />
+		<meta name="twitter:description" content={og.description ?? description} />
+		{ og.image && <meta name="twitter:image" content={og.image} /> }
+
+
 	</head>
+
 	<body class="bg-brand-dark">
 		<slot />
 	</body>
 </html>
-
-
-<style>
-	html, body {
-		background-color: #070707;
-	}
-</style>

@@ -1,8 +1,28 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const preloads = [
+	  {
+    href: "/src/assets/fonts/SpaceGrotesk-600.woff2",
+    as: "font",
+    type: "font/woff2",
+    crossorigin: "anonymous",
+  },
+  {
+    href: "/profile-pic.webp",
+    as: "image",
+    type: "image/webp",
+    fetchpriority: "high",
+  },
+];
+
+const robots = "noindex,nofollow"
+const canonical = "https://fernandoguerrero.dev"
+const description = "Inmortalizando mi presencia en la red. Página web, portfolio, blog, contacto. Aquí encontrarás mi piezas de mi trabajo y una parte de mi."
+
 ---
 
-<Layout>
+<Layout preloads={preloads} robots={robots} canonical={canonical} description={description}>
 
 	<main class="min-h-[90svh] bg-brand-dark pb-12">
 
