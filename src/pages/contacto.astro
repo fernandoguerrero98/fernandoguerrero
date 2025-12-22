@@ -1,0 +1,114 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Footer from '../components/Footer.astro';
+
+const apiRoute = "/api/contact"
+
+const preloads = [
+	  {
+    href: "/fonts/SpaceGrotesk-600.woff2",
+    as: "font",
+    type: "font/woff2",
+    crossorigin: "anonymous",
+  }
+]
+
+const robots = "noindex,nofollow"
+const canonical = "https://fernandoguerrero.dev/contacto"
+const description = "Si necesitas contactar conmigo por motivos profesionales, puedes rellenar el formulario de esta página. Te responderé en unos días."
+
+---
+
+<Layout preloads={preloads} robots={robots} canonical={canonical} description={description}>
+
+  <main class="min-h-[90svh] bg-brand-dark pb-12">
+
+		<div class="flex flex-col mx-auto max-w-2xl px-4 md:px-0">
+
+      <a class="flex pt-8 text-cyan-300 items-center gap-2 cursor-pointer" href="/">
+        <i class="icon-[material-symbols--arrow-back] hover:rotate" aria-hidden="true"></i>
+        <span class="underline">Volver a la página principal</span>
+      </a>
+
+      <section id="contacto">
+
+        <h1 class="text-h1 pt-8">Ponte en contacto conmigo</h1>
+
+        <p class="mt-4 text-base text-brand-white/60 leading-relaxed">
+          Rellena este formulario con tus <strong class="text-brand-white">datos de contacto</strong> y el <strong class="text-brand-white">motivo de tu consulta.</strong>
+          Te responderé por correo electrónico tan pronto como me sea posible.
+        </p>
+
+        <form action={apiRoute} method="post">
+
+          <ul class="flex flex-col bg-brand-semidark text-brand-white mt-8 gap-8 py-12 px-12 border-1 border-brand-white/20">
+            <li class="flex flex-col gap-4">
+              <label for="name" class="font-bold">Nombre y apellidos:</label>
+              <input
+                class="border-1 rounded-md py-2 px-4 border-brand-white/40 hover:border-brand-white/60 transition duration-200"
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Tu nombre y apellidos"
+                maxlength="100"
+                autocomplete="name"
+                required
+              />
+            </li>
+
+            <li class="flex flex-col gap-4">
+              <label for="mail" class="font-bold">Correo electrónico:</label>
+              <input
+                class="border-1 rounded-md py-2 px-4 border-brand-white/40 hover:border-brand-white/60 transition duration-200"
+                type="email"
+                id="mail"
+                name="email"
+                placeholder="Email"
+                maxlength="100"
+                autocomplete="email"
+                required
+              />
+            </li>
+
+            <li class="">
+              <label for="company">Empresa</label>
+              <input
+                type="text"
+                id="company"
+                name="company"
+                placeholder="Empresa"
+                maxlength="100"
+                tabindex="-1"
+                autocomplete="off"
+              />
+            </li>
+
+
+            <li class="flex flex-col gap-4">
+              <label for="msg" class="font-bold">Mensaje:</label>
+              <textarea
+                class="border-1 rounded-md py-4 px-4 border-brand-white/40 overflow-auto hover:border-brand-white/60 transition duration-200"
+                id="msg"
+                name="message"
+                placeholder="Describe brevemente cómo puedo ayudarte"
+                maxlength="500"
+                autocomplete="off"
+                required
+              ></textarea>
+            </li>
+
+            <li class="button w-full h-auto">
+              <button type="submit" class="bg-brand-accent w-[100%] py-2 rounded-lg font-bold text-h4 hover:scale-[101%] cursor-pointer shadow-none hover:shadow-md hover:drop-shadow-[0_3px_3px_rgba(252,100,100,0.2)] active:scale-[98%] transition duration-200 ">Enviar mensaje</button>
+            </li>
+          </ul>
+          
+        </form>
+
+      </section>
+
+    </div>
+
+  </main>
+
+  <Footer />
+</Layout>
