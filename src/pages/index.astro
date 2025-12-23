@@ -25,116 +25,158 @@ const description = "Inmortalizando mi presencia en la red. Página web, portfol
 
 <Layout preloads={preloads} robots={robots} canonical={canonical} description={description}>
 
-	<main class="min-h-[90svh] bg-brand-dark pb-12">
+  <div class="relative bg-brand-dark overflow-hidden">
 
-		<div class="mx-auto max-w-2xl px-4 md:px-0">
+		<div
+			aria-hidden="true"
+			class="
+				z-0
+				pointer-events-none
+				absolute inset-0
+				bg-[url(/images/bg-grid.png)]
+				opacity-10
+				[mask-image:radial-gradient(circle_at_center,white_0%,white_30%,transparent_70%)]
+				[-webkit-mask-image:radial-gradient(circle_at_center,white_0%,white_30%,transparent_70%)]
+			"
+		></div>
 
-			<header class="text-left pt-8 md:12">
+		<main class="min-h-[90svh] relative z-10 pb-12">
 
-				<img src="/profile-pic.webp" alt="Foto de perfil" width="64" height="64" class="rounded-full size-16" />
+			<div class="mx-auto max-w-2xl px-4 md:px-0">
 
-				<div class="flex items-center gap-3 pt-2">
-					<h1 class="text-brand-white text-h1">Fernando Guerrero</h1>
-					<i class="icon-[octicon--verified-16] text-brand-accent size-6" role="img" aria-hidden="true"></i>
+				<header class="text-left pt-8 md:12">
+
+					<img src="images/profile-pic.webp" alt="Foto de perfil" width="64" height="64" class="rounded-full size-16" />
+
+					<div class="flex items-center gap-3 pt-2">
+						<h1 class="text-brand-white text-h1 leading-tight">Fernando Guerrero</h1>
+						<i class="icon-[octicon--verified-16] text-brand-accent size-6" role="img" aria-hidden="true"></i>
+					</div>
+
+
+					<p class="text-brand-white/60 text-h5 font-geist">Marketing<span> · </span>Desarrollo Web</p>
+
+					<nav class="flex gap-4 mt-4 items-center">
+
+						<a class="flex gap-2 text-brand-white items-center cursor-pointer" href="/contacto">
+							<i class="icon-[fe--info] size-4" aria-hidden="true"></i>
+							<span class="underline">Contacto</span>
+						</a>
+
+						<a class="flex gap-2 text-brand-white items-center cursor-pointer" href="/404">
+							<i class="icon-[ph--article] size-4" aria-hidden="true"></i>
+							<span class="underline">Blogs (no disponible)</span>
+						</a>
+						
+					</nav>
+
+				</header>
+
+				<div class="py-12">
+					<hr class="border-brand-white/20">
 				</div>
 
+				<section id="about">
+					<h2 class="text-h2 text-brand-white">
+						Sobre mí
+					</h2>
 
-				<p class="text-brand-white text-h4">Marketing<span> · </span>Desarrollo Front-End</p>
+					<div class="flex flex-col gap-4 text-base text-brand-white/60 leading-relaxed">
+						
+						<p class="mt-4">
+							<strong class="text-brand-white/80">Responsable de Marketing</strong> en
+							<a class="underline text-brand-white/80" href="https://fsi.training/">FSI Training</a>.
+						</p>
 
-			</header>
+						<p>
+							Trabajo entre marketing y desarrollo, con una <strong class="text-brand-white/80">visión de ingeniería</strong> aplicada a sistemas digitales. Busco soluciones simples, y durables, centradas en la experiencia de cliente y usuario.
+						</p>
+						
+						<p>
+							Vengo del diseño, pasé por el marketing y la analítica. Hoy aplico las enseñanzas del camino para entender, estructurar y <strong class="text-brand-white/80">mejorar la propuesta de valor de mi empresa,</strong> con la colaboración de un excelente equipo.
+						</p>
+					</div>
 
-			<div class="py-12">
-				<hr class="border-brand-white/20">
-			</div>
+				</section>
 
-			<section id="about">
-				<h2 class="text-h2 text-brand-white">
-					Sobre mí
-				</h2>
-
-				<div class="flex flex-col gap-4 text-base text-brand-white/60 leading-relaxed">
-					
-					<p class="mt-4">
-						<strong>Responsable del Área de Marketing</strong> en
-						<a class="underline text-brand-white/80" href="https://fsi.training/">FSI Training</a>.
-					</p>
-
-					<p>
-						Trabajo entre marketing y desarrollo, con una <strong>visión de ingeniería</strong> aplicada a sistemas digitales. Busco soluciones quirúrgicas simples, y durables, centradas en la experiencia de cliente y usuario.
-					</p>
-					
-					<p>
-						Vengo del diseño, pasé por el marketing y la analítica. Hoy aplico las enseñanzas del camino para entender, estructurar y <strong>mejorar la propuesta de valor de mi empresa,</strong> con la colaboración de un excelente equipo.
-					</p>
+				<div class="py-12">
+					<hr class="border-brand-white/20">
 				</div>
 
-			</section>
+				<section>
+					<h2 class="text-h2 text-brand-white">
+						Tecnologías
+					</h2>
 
-			<div class="py-12">
-				<hr class="border-brand-white/20">
+					<ul class="grid grid-cols-4 gap-4 md:grid-cols-8 md:gap-6 mt-4">
+						<li class="size-18 md:size-16 flex items-center justify-center border rounded-xl border-brand-white/30 bg-brand-white/10 hover:scale-105 duration-300 ease-in-out transition hover:border-fuchsia-500" title="Astro">
+							<img src="images/astro.svg" alt="Astro" width="64" height="64" class="p-4" />
+						</li>
+
+						<li class="size-18 md:size-16 flex items-center justify-center border rounded-xl border-brand-white/30 bg-brand-white/10 hover:scale-105 duration-300 ease-in-out transition hover:border-cyan-500" title="Tailwind">
+							<img src="images/tailwind.svg" alt="Tailwind" width="64" height="64" class="p-4" />
+						</li>
+
+						<li class="size-18 md:size-16 flex items-center justify-center border rounded-xl border-brand-white/30 bg-brand-white/10 hover:scale-105 duration-300 ease-in-out transition hover:border-yellow-500" title="JavaScript">
+							<img src="images/javascript.svg" alt="JavaScript" width="64" height="64" class="p-4" />
+						</li>
+
+						<li class="size-18 md:size-16 flex items-center justify-center border rounded-xl border-brand-white/30 bg-brand-white/10 hover:scale-105 duration-300 ease-in-out transition hover:border-sky-500" title="WordPress">
+							<img src="images/wordpress.svg" alt="WordPress" width="64" height="64" class="p-4" />
+						</li>
+
+						<li class="size-18 md:size-16 flex items-center justify-center border rounded-xl border-brand-white/30 bg-brand-white/10 hover:scale-105 duration-300 ease-in-out transition hover:border-orange-500" title="Google Analytics">
+							<img src="images/ganalytics.svg" alt="Google Analytics" width="64" height="64" class="p-4" />
+						</li>
+
+						<li class="size-18 md:size-16 flex items-center justify-center border rounded-xl border-brand-white/30 bg-brand-white/10 hover:scale-105 duration-300 ease-in-out transition hover:border-blue-500" title="Google Looker Studio">
+							<img src="images/glookerstudio.svg" alt="Google Looker Studio" width="64" height="64" class="p-4" />
+						</li>
+
+						<li class="size-18 md:size-16 flex items-center justify-center border rounded-xl border-brand-white/30 bg-brand-white/10 hover:scale-105 duration-300 ease-in-out transition hover:border-orange-800" title="Adobe Illustrator">
+							<img src="images/aillustrator.svg" alt="Illustrator" width="64" height="64" class="p-4" />
+						</li>
+
+						<li class="size-18 md:size-16 flex items-center justify-center border rounded-xl border-brand-white/30 bg-brand-white/10 hover:scale-105 duration-300 ease-in-out transition hover:border-blue-800" title="Adobe Photoshop">
+							<img src="images/aphotoshop.svg" alt="Photoshop" width="64" height="64" class="p-4" />
+						</li>
+
+						<li class="size-18 md:size-16 flex items-center justify-center border rounded-xl border-brand-white/30 bg-brand-white/10 hover:scale-105 duration-300 ease-in-out transition hover:border-indigo-500" title="Adobe Premiere">
+							<img src="images/apremiere.svg" alt="Adobe Premiere" width="64" height="64" class="p-4" />
+						</li>
+
+						<li class="size-18 md:size-16 flex items-center justify-center border rounded-xl border-brand-white/30 bg-brand-white/10 hover:scale-105 duration-300 ease-in-out transition hover:border-violet-500" title="Adobe After Effects">
+							<img src="images/aaftereffects.svg" alt="Adobe After Effects" width="64" height="64" class="p-4" />
+						</li>
+
+						<li class="size-18 md:size-16 flex items-center justify-center border rounded-xl border-brand-white/30 bg-brand-white/10 hover:scale-105 duration-300 ease-in-out transition hover:border-rose-700" title="Adobe InDesign">
+							<img src="images/aindesign.svg" alt="Adobe InDesign" width="64" height="64" class="p-4" />
+						</li>
+
+						<li class="size-18 md:size-16 flex items-center justify-center border rounded-xl border-brand-white/30 bg-brand-white/10 hover:scale-105 duration-300 ease-in-out transition hover:border-slate-200" title="Figma">
+							<img src="images/figma.svg" alt="Figma" width="64" height="64" class="p-4" />
+						</li>
+					</ul>
+
+				</section>
+
+				<div class="py-12">
+					<hr class="border-brand-white/20">
+				</div>
+
+				<section>
+					<h2 class="text-h2 text-brand-white">
+						Novedades
+					</h2>
+
+					<p class="mt-4 text-brand-white/60">No hay novedades en este momento :(</p>
+
 			</div>
 
-			<section>
-				<h2 class="text-h2 text-brand-white">
-					Tecnologías
-				</h2>
+		</main>
 
-				<ul class="grid grid-cols-4 gap-4 md:grid-cols-8 md:gap-6 pt-4">
-					<li class="size-18 md:size-16 flex items-center justify-center border rounded-xl border-brand-white/30 bg-brand-white/10 hover:scale-105 duration-300 ease-in-out transition hover:border-fuchsia-500" title="Astro">
-						<img src="/astro.svg" alt="Astro" width="64" height="64" class="p-4" />
-					</li>
+		<Footer />
 
-					<li class="size-18 md:size-16 flex items-center justify-center border rounded-xl border-brand-white/30 bg-brand-white/10 hover:scale-105 duration-300 ease-in-out transition hover:border-cyan-500" title="Tailwind">
-						<img src="/tailwind.svg" alt="Tailwind" width="64" height="64" class="p-4" />
-					</li>
-
-					<li class="size-18 md:size-16 flex items-center justify-center border rounded-xl border-brand-white/30 bg-brand-white/10 hover:scale-105 duration-300 ease-in-out transition hover:border-yellow-500" title="JavaScript">
-						<img src="/javascript.svg" alt="JavaScript" width="64" height="64" class="p-4" />
-					</li>
-
-					<li class="size-18 md:size-16 flex items-center justify-center border rounded-xl border-brand-white/30 bg-brand-white/10 hover:scale-105 duration-300 ease-in-out transition hover:border-sky-500" title="WordPress">
-						<img src="/wordpress.svg" alt="WordPress" width="64" height="64" class="p-4" />
-					</li>
-
-					<li class="size-18 md:size-16 flex items-center justify-center border rounded-xl border-brand-white/30 bg-brand-white/10 hover:scale-105 duration-300 ease-in-out transition hover:border-orange-500" title="Google Analytics">
-						<img src="/ganalytics.svg" alt="Google Analytics" width="64" height="64" class="p-4" />
-					</li>
-
-					<li class="size-18 md:size-16 flex items-center justify-center border rounded-xl border-brand-white/30 bg-brand-white/10 hover:scale-105 duration-300 ease-in-out transition hover:border-blue-500" title="Google Looker Studio">
-						<img src="/glookerstudio.svg" alt="Google Looker Studio" width="64" height="64" class="p-4" />
-					</li>
-
-					<li class="size-18 md:size-16 flex items-center justify-center border rounded-xl border-brand-white/30 bg-brand-white/10 hover:scale-105 duration-300 ease-in-out transition hover:border-orange-800" title="Adobe Illustrator">
-						<img src="/aillustrator.svg" alt="Illustrator" width="64" height="64" class="p-4" />
-					</li>
-
-					<li class="size-18 md:size-16 flex items-center justify-center border rounded-xl border-brand-white/30 bg-brand-white/10 hover:scale-105 duration-300 ease-in-out transition hover:border-blue-800" title="Adobe Photoshop">
-						<img src="/aphotoshop.svg" alt="Photoshop" width="64" height="64" class="p-4" />
-					</li>
-
-					<li class="size-18 md:size-16 flex items-center justify-center border rounded-xl border-brand-white/30 bg-brand-white/10 hover:scale-105 duration-300 ease-in-out transition hover:border-indigo-500" title="Adobe Premiere">
-						<img src="/apremiere.svg" alt="Adobe Premiere" width="64" height="64" class="p-4" />
-					</li>
-
-					<li class="size-18 md:size-16 flex items-center justify-center border rounded-xl border-brand-white/30 bg-brand-white/10 hover:scale-105 duration-300 ease-in-out transition hover:border-violet-500" title="Adobe After Effects">
-						<img src="/aaftereffects.svg" alt="Adobe After Effects" width="64" height="64" class="p-4" />
-					</li>
-
-					<li class="size-18 md:size-16 flex items-center justify-center border rounded-xl border-brand-white/30 bg-brand-white/10 hover:scale-105 duration-300 ease-in-out transition hover:border-rose-700" title="Adobe InDesign">
-						<img src="/aindesign.svg" alt="Adobe InDesign" width="64" height="64" class="p-4" />
-					</li>
-
-					<li class="size-18 md:size-16 flex items-center justify-center border rounded-xl border-brand-white/30 bg-brand-white/10 hover:scale-105 duration-300 ease-in-out transition hover:border-slate-200" title="Figma">
-						<img src="/figma.svg" alt="Figma" width="64" height="64" class="p-4" />
-					</li>
-				</ul>
-
-			</section>
-
-		</div>
-
-	</main>
-
-	<Footer />
+	</div>
 
 </Layout>
