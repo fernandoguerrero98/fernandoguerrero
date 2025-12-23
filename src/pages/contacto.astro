@@ -26,18 +26,20 @@ const description = "Si necesitas contactar conmigo por motivos profesionales, p
 		<div class="flex flex-col mx-auto max-w-2xl px-4 md:px-0">
 
       <a class="flex pt-8 text-brand-white items-center gap-2 cursor-pointer" href="/">
-        <i class="icon-[material-symbols--arrow-back] hover:rotate" aria-hidden="true"></i>
+        <i class="icon-[material-symbols--arrow-back]" aria-hidden="true"></i>
         <span class="underline">Volver a la página principal</span>
       </a>
 
       <section id="contacto">
 
-        <h1 class="text-h1 pt-12">Ponte en contacto conmigo</h1>
+        <h1 class="text-h1 pt-12 leading-tight">Ponte en contacto conmigo</h1>
 
         <p class="mt-4 text-base text-brand-white/60 leading-relaxed">
           Rellena este formulario con tus <strong>datos de contacto</strong> y el <strong>motivo de tu consulta.</strong>
           Te responderé por correo electrónico tan pronto como me sea posible.
         </p>
+
+        <p class="text-brand-white/90 pt-6">NOTA: Este formulario está en fase de pruebas. Pronto estará disponible para contactar.</p>
 
         <form action={apiRoute} method="post">
 
