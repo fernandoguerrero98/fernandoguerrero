@@ -2,6 +2,14 @@
 import Layout from '../layouts/Layout.astro';
 import Footer from '../components/Footer.astro';
 
+import { getCollection } from 'astro:content';
+
+const blogs = await getCollection("blogs");
+
+const latestblogs = blogs
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 4)
+
 const preloads = [
 	  {
     href: "/fonts/SpaceGrotesk-600.woff2",
@@ -10,20 +18,21 @@ const preloads = [
     crossorigin: "anonymous",
   },
   {
-    href: "images/profile-pic.webp",
+    href: "/images/profile-pic.webp",
     as: "image",
     type: "image/webp",
     fetchpriority: "high",
   },
 ];
 
+const title = "Fernando Guerrero"
 const robots = "noindex,nofollow"
 const canonical = "https://fernandoguerrero.dev"
 const description = "Inmortalizando mi presencia en la red. Página web, portfolio, blog, contacto. Aquí encontrarás mi piezas de mi trabajo y una parte de mi."
 
 ---
 
-<Layout preloads={preloads} robots={robots} canonical={canonical} description={description}>
+<Layout title={title} preloads={preloads} robots={robots} canonical={canonical} description={description}>
 
   <div class="relative bg-brand-dark overflow-hidden">
 
@@ -40,11 +49,11 @@ const description = "Inmortalizando mi presencia en la red. Página web, portfol
 			"
 		></div>
 
-		<main class="min-h-[90svh] relative z-10 pb-12">
+		<main class="min-h-[90svh] relative z-10 mb-16">
 
 			<div class="mx-auto max-w-2xl px-4 md:px-0">
 
-				<header class="text-left pt-8 md:12">
+				<header class="text-left pt-8">
 
 					<img src="images/profile-pic.webp" alt="Foto de perfil" width="64" height="64" class="rounded-full size-16" />
 
@@ -72,18 +81,18 @@ const description = "Inmortalizando mi presencia en la red. Página web, portfol
 
 				</header>
 
-				<div class="py-12">
+				<div class="py-12 md:py-16">
 					<hr class="border-brand-white/20">
 				</div>
 
 				<section id="about">
-					<h2 class="text-h2 text-brand-white">
+					<h2 class="text-h2 text-brand-white mb-6">
 						Sobre mí
 					</h2>
 
 					<div class="flex flex-col gap-4 text-base text-brand-white/60 leading-relaxed">
 						
-						<p class="mt-4">
+						<p>
 							<strong class="text-brand-white/80">Responsable de Marketing en
 							<a class="underline text-brand-white/80" href="https://fsi.training/">FSI Training</a>.</strong>
 						</p>
@@ -99,77 +108,136 @@ const description = "Inmortalizando mi presencia en la red. Página web, portfol
 
 				</section>
 
-				<div class="py-12">
+				<div class="py-12 md:py-16">
 					<hr class="border-brand-white/20">
 				</div>
 
 				<section>
-					<h2 class="text-h2 text-brand-white">
+					<h2 class="text-h2 text-brand-white mb-6">
 						Tecnologías
 					</h2>
 
-					<ul class="grid grid-cols-4 gap-4 md:grid-cols-8 md:gap-6 mt-4">
-						<li class="size-18 md:size-16 flex items-center justify-center border rounded-xl border-brand-white/30 bg-brand-white/10 hover:scale-105 duration-300 ease-in-out transition hover:border-fuchsia-500" title="Astro">
+					<ul class="grid grid-cols-4 gap-4 md:grid-cols-8 md:gap-6">
+						<li class="size-18 md:size-16 flex items-center justify-center border rounded-xl border-brand-white/30 bg-brand-semidark hover:scale-105 duration-300 ease-in-out transition hover:border-fuchsia-500" title="Astro">
 							<img src="images/astro.svg" alt="Astro" width="64" height="64" class="p-4" />
 						</li>
 
-						<li class="size-18 md:size-16 flex items-center justify-center border rounded-xl border-brand-white/30 bg-brand-white/10 hover:scale-105 duration-300 ease-in-out transition hover:border-cyan-500" title="Tailwind">
+						<li class="size-18 md:size-16 flex items-center justify-center border rounded-xl border-brand-white/30 bg-brand-semidark hover:scale-105 duration-300 ease-in-out transition hover:border-cyan-500" title="Tailwind">
 							<img src="images/tailwind.svg" alt="Tailwind" width="64" height="64" class="p-4" />
 						</li>
 
-						<li class="size-18 md:size-16 flex items-center justify-center border rounded-xl border-brand-white/30 bg-brand-white/10 hover:scale-105 duration-300 ease-in-out transition hover:border-yellow-500" title="JavaScript">
+						<li class="size-18 md:size-16 flex items-center justify-center border rounded-xl border-brand-white/30 bg-brand-semidark hover:scale-105 duration-300 ease-in-out transition hover:border-yellow-500" title="JavaScript">
 							<img src="images/javascript.svg" alt="JavaScript" width="64" height="64" class="p-4" />
 						</li>
 
-						<li class="size-18 md:size-16 flex items-center justify-center border rounded-xl border-brand-white/30 bg-brand-white/10 hover:scale-105 duration-300 ease-in-out transition hover:border-sky-500" title="WordPress">
+						<li class="size-18 md:size-16 flex items-center justify-center border rounded-xl border-brand-white/30 bg-brand-semidark hover:scale-105 duration-300 ease-in-out transition hover:border-sky-500" title="WordPress">
 							<img src="images/wordpress.svg" alt="WordPress" width="64" height="64" class="p-4" />
 						</li>
 
-						<li class="size-18 md:size-16 flex items-center justify-center border rounded-xl border-brand-white/30 bg-brand-white/10 hover:scale-105 duration-300 ease-in-out transition hover:border-orange-500" title="Google Analytics">
+						<li class="size-18 md:size-16 flex items-center justify-center border rounded-xl border-brand-white/30 bg-brand-semidark hover:scale-105 duration-300 ease-in-out transition hover:border-orange-500" title="Google Analytics">
 							<img src="images/ganalytics.svg" alt="Google Analytics" width="64" height="64" class="p-4" />
 						</li>
 
-						<li class="size-18 md:size-16 flex items-center justify-center border rounded-xl border-brand-white/30 bg-brand-white/10 hover:scale-105 duration-300 ease-in-out transition hover:border-blue-500" title="Google Looker Studio">
+						<li class="size-18 md:size-16 flex items-center justify-center border rounded-xl border-brand-white/30 bg-brand-semidark hover:scale-105 duration-300 ease-in-out transition hover:border-blue-500" title="Google Looker Studio">
 							<img src="images/glookerstudio.svg" alt="Google Looker Studio" width="64" height="64" class="p-4" />
 						</li>
 
-						<li class="size-18 md:size-16 flex items-center justify-center border rounded-xl border-brand-white/30 bg-brand-white/10 hover:scale-105 duration-300 ease-in-out transition hover:border-orange-800" title="Adobe Illustrator">
+						<li class="size-18 md:size-16 flex items-center justify-center border rounded-xl border-brand-white/30 bg-brand-semidark hover:scale-105 duration-300 ease-in-out transition hover:border-orange-800" title="Adobe Illustrator">
 							<img src="images/aillustrator.svg" alt="Illustrator" width="64" height="64" class="p-4" />
 						</li>
 
-						<li class="size-18 md:size-16 flex items-center justify-center border rounded-xl border-brand-white/30 bg-brand-white/10 hover:scale-105 duration-300 ease-in-out transition hover:border-blue-800" title="Adobe Photoshop">
+						<li class="size-18 md:size-16 flex items-center justify-center border rounded-xl border-brand-white/30 bg-brand-semidark hover:scale-105 duration-300 ease-in-out transition hover:border-blue-800" title="Adobe Photoshop">
 							<img src="images/aphotoshop.svg" alt="Photoshop" width="64" height="64" class="p-4" />
 						</li>
 
-						<li class="size-18 md:size-16 flex items-center justify-center border rounded-xl border-brand-white/30 bg-brand-white/10 hover:scale-105 duration-300 ease-in-out transition hover:border-indigo-500" title="Adobe Premiere">
+						<li class="size-18 md:size-16 flex items-center justify-center border rounded-xl border-brand-white/30 bg-brand-semidark hover:scale-105 duration-300 ease-in-out transition hover:border-indigo-500" title="Adobe Premiere">
 							<img src="images/apremiere.svg" alt="Adobe Premiere" width="64" height="64" class="p-4" />
 						</li>
 
-						<li class="size-18 md:size-16 flex items-center justify-center border rounded-xl border-brand-white/30 bg-brand-white/10 hover:scale-105 duration-300 ease-in-out transition hover:border-violet-500" title="Adobe After Effects">
+						<li class="size-18 md:size-16 flex items-center justify-center border rounded-xl border-brand-white/30 bg-brand-semidark hover:scale-105 duration-300 ease-in-out transition hover:border-violet-500" title="Adobe After Effects">
 							<img src="images/aaftereffects.svg" alt="Adobe After Effects" width="64" height="64" class="p-4" />
 						</li>
 
-						<li class="size-18 md:size-16 flex items-center justify-center border rounded-xl border-brand-white/30 bg-brand-white/10 hover:scale-105 duration-300 ease-in-out transition hover:border-rose-700" title="Adobe InDesign">
+						<li class="size-18 md:size-16 flex items-center justify-center border rounded-xl border-brand-white/30 bg-brand-semidark hover:scale-105 duration-300 ease-in-out transition hover:border-rose-700" title="Adobe InDesign">
 							<img src="images/aindesign.svg" alt="Adobe InDesign" width="64" height="64" class="p-4" />
 						</li>
 
-						<li class="size-18 md:size-16 flex items-center justify-center border rounded-xl border-brand-white/30 bg-brand-white/10 hover:scale-105 duration-300 ease-in-out transition hover:border-slate-200" title="Figma">
+						<li class="size-18 md:size-16 flex items-center justify-center border rounded-xl border-brand-white/30 bg-brand-semidark hover:scale-105 duration-300 ease-in-out transition hover:border-slate-200" title="Figma">
 							<img src="images/figma.svg" alt="Figma" width="64" height="64" class="p-4" />
 						</li>
 					</ul>
 
 				</section>
 
-				<div class="py-12">
+				<div class="py-12 md:py-16">
 					<hr class="border-brand-white/20">
 				</div>
 
 				<section>
-					<h2 class="text-h2 text-brand-white">
+					<h2 class="text-h2 text-brand-white mb-6">
 						Novedades
 					</h2>
 
-					<p class="mt-4 text-brand-white/60">No hay novedades en este momento :(</p>
+					<ul class="grid grid-cols-1 gap-4">
+						{
+							latestblogs.map((b) => {
+								return (
+
+									<li>
+										<article class="bg-brand-dark border border-brand-white/20 rounded-lg hover:border-brand-white/60 hover:bg-brand-semidark transition duration-300">
+
+											<a href={`/articulos/${b.slug}`} class="flex flex-col py-8 px-6 group">
+
+												<div class="flex items-center justify-between mb-4 gap-2">
+													<h3 class="article-title text-base line-clamp-1">{b.data.title}</h3>
+													<span class="icon-[material-symbols--arrow-forward-ios] rotate-y-180 group-hover:rotate-y-[-180] transition-transform duration-300" role="img" aria-hidden="true" />
+												</div>
+
+												<div class="mb-6">
+													<p class="text-base text-brand-white/60 line-clamp-2">{b.data.metadescription}</p>
+												</div>
+
+												<div class="flex items-center justify-between">
+													<ul>
+														{
+															b.data.tags?.length > 0 && (
+																<footer>
+																	<ul class="flex gap-4">
+																		{
+																			b.data.tags.map((t) => (
+																				<li class="px-2 py-1 border-1 rounded-sm border-brand-white/20 text-xs text-brand-white/50">
+																					{t}
+																				</li>
+																			))
+																		}
+																	</ul>
+																</footer>
+															)
+														}
+													</ul>
+													<time class="text-sm text-brand-white/50">
+														{
+															b.data.date.toLocaleDateString("es-ES", {
+																day: "numeric",
+																month: "short",
+																year: "numeric",
+															})
+														}
+													</time>
+												</div>
+
+											</a>
+
+										</article>
+
+									</li>
+
+								)
+							})
+						}
+					</ul>
+				
+				</section>
 
 			</div>
 
