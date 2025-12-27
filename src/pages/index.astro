@@ -198,23 +198,20 @@ const description = "Inmortalizando mi presencia en la red. Página web, portfol
 												</div>
 
 												<div class="flex flex-col items-start justify-normal md:flex-row md:items-center md:justify-between">
-													<ul>
-														{
-															b.data.tags?.length > 0 && (
-																<footer>
-																	<ul class="flex gap-2 lg:gap-4">
-																		{
-																			b.data.tags.map((t) => (
-																				<li class="px-2 py-1 border-1 rounded-sm border-brand-white/20 text-xs text-brand-white/50">
-																					{t}
-																				</li>
-																			))
-																		}
-																	</ul>
-																</footer>
-															)
-														}
-													</ul>
+												{
+													b.data.tags?.length > 0 && (
+														<footer>
+															<ul class="flex gap-2 lg:gap-4">
+																{b.data.tags.map((t) => (
+																	<li class="px-2 py-1 border rounded-sm border-brand-white/20 text-xs text-brand-white/50">
+																		{t}
+																	</li>
+																))}
+															</ul>
+														</footer>
+													)
+												}
+
 													<time class="text-sm text-brand-white/50 mt-4 md:mt-0">
 														{
 															b.data.date.toLocaleDateString("es-ES", {
