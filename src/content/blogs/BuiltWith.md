@@ -1,7 +1,7 @@
 ---
 
 id: 1
-title: "Encuentra clientes según tu stack tecnológico con BuiltWith"
+title: "Encuentra clientes según tu stack tecnológico"
 metadescription: "Con esta web podrás identificar empresas que usan tecnología que conoces y conectar con clientes de alto valor. Excelente para stacks nicho."
 date: 2025-12-27
 updated: 2025-12-27
