@@ -20,9 +20,11 @@ export async function sendContactEmail({name, email, message}) {
     to: import.meta.env.MAIL_TO,
     replyTo: email,
     subject: `Nuevo contacto en web: ${name}`,
-    text: `Nombre: ${name}, Email: ${email},
-      Mensaje:
-      ${message}
-      `,
+    text: 
+    `Nombre: ${name}, Email: ${email},
+
+    Mensaje:
+    ${message}
+  `,
   });
 }
