@@ -1,11 +1,26 @@
 // src/pages/api/contact.ts
 import type { APIRoute } from "astro";
+import { sendContactEmail } from  "../../lib/sendEmail.js"
+
+const cooldownMap = new Map<string, number>();
+const CD_MS = 60_000; // cd de 1 min
+
+const redirect = "/";
 
 export const prerender = false;
 
 export const POST: APIRoute = async ({ request }) => {
 
-  console.log("Content-Type:", request.headers.get("content-type"));
+
+  // Limitar flood de ruta api
+  const ip = request.headers.get("x-forwarded-for")?.split(",")[0] ?? "unknown";
+
+  const now = Date.now();
+  const lastRequest = cooldownMap.get(ip);
+
+  if (lastRequest && now - lastRequest < CD_MS) {
+    return new Response("Too many requests", { status: 429 });
+  }
 
   const data = await request.formData();
 
@@ -63,7 +78,29 @@ export const POST: APIRoute = async ({ request }) => {
 
   console.log(cleanName, cleanEmail, cleanMessage);
 
-  return new Response("ok", { status: 200 });
 
-  // Cooldown
+  // Guarda en memoria la ip, tras el tiempo del cd, eliminala del map
+  cooldownMap.set(ip, now);
+  setTimeout(() => cooldownMap.delete(ip), CD_MS);
+
+
+  // Llamar al script para montar mail
+  try {
+    await sendContactEmail({
+      name: cleanName,
+      email: cleanEmail,
+      message: cleanMessage,
+    });
+  } catch (err) {
+    console.error("Email send failed", err);
+    return new Response("error", { status: 500 });
+  }
+
+  return new Response(null, {
+    status: 303,
+    headers: {
+      Location: redirect,
+    } 
+  });
+
 };
