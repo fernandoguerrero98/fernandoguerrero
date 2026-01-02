@@ -13,7 +13,7 @@ const preloads = [
   }
 ]
 
-const robots = "noindex,nofollow"
+const robots = "index,follow"
 const canonical = "https://fernandoguerrero.dev/contacto"
 const description = "Si necesitas contactar conmigo por motivos profesionales, puedes rellenar el formulario de esta página. Te responderé en unos días."
 
@@ -38,8 +38,6 @@ const description = "Si necesitas contactar conmigo por motivos profesionales, p
           Rellena este formulario con tus <strong>datos de contacto</strong> y el <strong>motivo de tu consulta.</strong>
           Te responderé por correo electrónico tan pronto como me sea posible.
         </p>
-
-        <p class="text-brand-white/90 pt-6">NOTA: Este formulario está en fase de pruebas. Pronto estará disponible para contactar.</p>
 
         <form action={apiRoute} method="post">
 
