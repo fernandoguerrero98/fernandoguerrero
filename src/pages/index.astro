@@ -17,16 +17,10 @@ const preloads = [
     type: "font/woff2",
     crossorigin: "anonymous",
   },
-  {
-    href: "/images/profile-pic.webp",
-    as: "image",
-    type: "image/webp",
-    fetchpriority: "high",
-  },
 ];
 
 const title = "Fernando Guerrero"
-const robots = "noindex,nofollow"
+const robots = "index,follow"
 const canonical = "https://fernandoguerrero.dev"
 const description = "Inmortalizando mi presencia en la red. Página web, portfolio, blog, contacto. Aquí encontrarás mi piezas de mi trabajo y una parte de mi."
 
@@ -226,26 +220,37 @@ const description = "Inmortalizando mi presencia en la red. Página web, portfol
 						Novedades
 					</h2>
 
-					<p class="text-brand-white/60">Pronto habrá novedades :)</p>
-
-					<!-- <ul class="grid grid-cols-1 gap-4">
+					<ul class="grid grid-cols-1 md:grid-cols-2 gap-6">
+						
+						{
+							latestblogs.length === 0 && <p>No hay blogs disponibles en este momento 😢</p>
+						}
+						
 						{
 							latestblogs.map((b) => {
 								return (
 
 									<li>
-										<article class="bg-brand-dark border border-brand-white/20 rounded-lg hover:border-brand-white/60 hover:bg-brand-semidark transition duration-300">
+										<div class="bg-brand-dark border border-brand-white/20 rounded-lg hover:border-brand-white/60 hover:bg-brand-semidark transition duration-300">
 
-											<a href={`/articulos/${b.slug}`} class="flex flex-col py-8 px-6 group">
+											<a href={`/articulos/${b.slug}`} class="flex flex-col p-6 group">
 
-												<div class="flex items-center justify-between mb-4 gap-2">
-													<h3 class="article-title text-base line-clamp-2 md:line-clamp-1">{b.data.title}</h3>
-													<span class="icon-[material-symbols--arrow-forward-ios] rotate-y-180 group-hover:rotate-y-[-180] transition-transform duration-300" role="img" aria-hidden="true" />
+												<img class="mb-4 rounded-md" src={b.data.cover} alt={b.data.coveralt} />
+												
+												<div class="flex justify-between text-sm text-brand-white/40 mt-2">
+													<p>{b.data.category}</p>
+													<time>
+														{
+															b.data.date.toLocaleDateString("es-ES", {
+																day: "numeric",
+																month: "short",
+																year: "numeric",
+															})
+														}
+													</time>
 												</div>
 
-												<div class="mb-6">
-													<p class="text-base text-brand-white/60 line-clamp-4 md:line-clamp-2">{b.data.metadescription}</p>
-												</div>
+												<h3 class="article-title mt-2 mb-4 text-base">{b.data.title}</h3>
 
 												<div class="flex flex-col items-start justify-normal md:flex-row md:items-center md:justify-between">
 												{
@@ -261,28 +266,15 @@ const description = "Inmortalizando mi presencia en la red. Página web, portfol
 														</footer>
 													)
 												}
-
-													<time class="text-sm text-brand-white/50 mt-4 md:mt-0">
-														{
-															b.data.date.toLocaleDateString("es-ES", {
-																day: "numeric",
-																month: "short",
-																year: "numeric",
-															})
-														}
-													</time>
 												</div>
-
 											</a>
-
-										</article>
-
+										</div>
 									</li>
-
 								)
 							})
 						}
-					</ul> -->
+
+					</ul>
 				
 				</section>
 
