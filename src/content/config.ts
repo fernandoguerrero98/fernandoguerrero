@@ -11,9 +11,11 @@ const blogs = defineCollection({
     tags: z.array(z.string()),
     category: z.string(),
     cover: z.string(),
+    coveralt: z.string(),
     canonical: z.string().url(),
     sources: z.array(
       z.object({
+        index: z.number(),
         label: z.string(),
         url: z.string().url(),
       })
