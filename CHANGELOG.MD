@@ -1,4 +1,4 @@
-# Changelog
+# 📖 Changelog 📖
 
 All notable changes to this project will be documented in this file.
 
@@ -10,18 +10,18 @@ This project adheres to Semantic Versioning.
 ## [VER] - YYYY-MM-DD
 
 ### Added
-- 
+- 🟢
 
 ### Changed
-- 
+- 🟠
 
 ### Fixed
-- 
+- 🔴
 
 ---
 
 ## [1.0.0] - 2026-02-XX
 
 ### Added
-- Initial production release of the new FSI Astro website
-- Cloudflare Pages deployment
+- 🟢 Initial production release of the new FSI Astro website
+- 🟢 Cloudflare Pages deployment
